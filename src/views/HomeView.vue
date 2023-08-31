@@ -9,8 +9,8 @@
     const map =new mapboxgl.Map(
       {
         container: "mapcontainer",
-        style: `mapbox://styles/shakzy/cllxv04m700ki01pjejo35gwd`,
-        center: [5.037739, 7.977827],
+        style: `mapbox://styles/shakzy/cllzhauhc00o501pba4gt0zhi`,
+        center: [5.037636, 7.977964],
         zoom: 12,
       }
     );
