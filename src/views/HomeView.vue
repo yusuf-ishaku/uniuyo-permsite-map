@@ -8,26 +8,31 @@
     const nav = new mapboxgl.NavigationControl();
     const bounds = [
         [7.972914, 5.028030],
-       [7.981987, 5.047798]
+        [7.981987, 5.047798]
     ];
-    const map = new mapboxgl.Map(
-      {
-        container: "mapcontainer",
-        style: `mapbox://styles/shakzy/cllzhauhc00o501pba4gt0zhi`,
-        center: [ 7.977964,5.037636],
-        zoom: 1,
-        maxBounds: bounds
-      }
-    );
-   map.addControl(nav, "top-right");
-   map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
+    const map = new mapboxgl.Map({
+      container: "mapcontainer",
+      style: `mapbox://styles/shakzy/cllzhauhc00o501pba4gt0zhi`,
+      center: [7.977964, 5.037636],
+      zoom: 1,
+      maxBounds: bounds
+    });
+    map.addControl(nav, "top-right");
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
         enableHighAccuracy: true
-    },
-    trackUserLocation: true,
-    showUserHeading: true
-}));
-  })
+      },
+      trackUserLocation: true,
+      showUserHeading: true
+    }));
+   
+ 
+  
+  });
+
+
+
+  
 </script>
 
 <template>
