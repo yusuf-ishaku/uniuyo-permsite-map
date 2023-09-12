@@ -4,9 +4,10 @@ import { RouterLink} from 'vue-router'
 </script>
 
 <template>
-    <div class="w-[100vw] h-[10vh] fixed bottom-1 flex flex-row items-center border-t-[1px]">
+    <div class="w-[100vw] h-[100vh]  flex flex-col items-center border-t-[1px]">
       <!-- <HelloWorld msg="You did it!" /> -->
-      <nav class="w-full flex flex-row items-center justify-between font-normal px-4" >
+      <RouterView class="w-[100%] h-[90vh]"/>
+      <nav class="w-full bg-white fixed bottom-0 h-[10vh] flex flex-row items-center justify-between font-normal px-4" >
         <RouterLink class="font-poppins" to="/your-locations">
           your locations
         </RouterLink>
@@ -21,5 +22,5 @@ import { RouterLink} from 'vue-router'
       
       </nav>
     </div>
-  <RouterView class="w-[100vw]"/>
+  
 </template>

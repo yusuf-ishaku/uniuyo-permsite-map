@@ -59,7 +59,7 @@ const popup = new mapboxgl.Popup({ offset: [0, -15] })
 
 <style scoped>
 #mapcontainer{
-  width: auto;
+  width: 100%;
   height: 90vh;
 }
 
