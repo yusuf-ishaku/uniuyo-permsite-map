@@ -14,7 +14,7 @@
       container: "mapcontainer",
       style: `mapbox://styles/shakzy/cllzhauhc00o501pba4gt0zhi`,
       center: [7.977964, 5.037636],
-      zoom: 1,
+      zoom: 2,
       maxBounds: bounds
     });
     map.addControl(nav, "top-right");
@@ -24,7 +24,26 @@
     },
     trackUserLocation: true,
     showUserHeading: true
-}));
+    })
+    );
+    map.on('click', (event) => {
+const features = map.queryRenderedFeatures(event.point, {
+layers: ['uniuyolocation']
+});
+if (!features.length) {
+return;
+}
+const feature = features[0];
+ 
+const popup = new mapboxgl.Popup({ offset: [0, -15] })
+.setLngLat(feature.geometry.coordinates)
+.setHTML(
+`<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>`
+)
+.addTo(map);
+});    
+
+
   })
 </script>
 
