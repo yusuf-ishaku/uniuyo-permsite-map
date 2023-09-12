@@ -10,6 +10,7 @@
         [7.972914, 5.028030],
         [7.981987, 5.047798]
     ];
+    
     const map = new mapboxgl.Map({
       container: "mapcontainer",
       style: `mapbox://styles/shakzy/cllvtm9qo00dy01r4a0e5h7lx`,
@@ -48,6 +49,10 @@ const popup = new mapboxgl.Popup({ offset: [0, -15] })
 </script>
 
 <template>
+  <!-- <div id="comparison-container">
+    <div id="before" class="map"></div>
+    <div id="after" class="map"></div>
+  </div> -->
   <main id="mapcontainer" >
   </main>
 </template>

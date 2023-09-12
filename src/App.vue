@@ -4,7 +4,7 @@ import { RouterLink} from 'vue-router'
 </script>
 
 <template>
-    <div class="w-[100vw] h-14 fixed bottom-0 flex flex-row items-center border-t-[1px]">
+    <div class="w-[100vw] h-[10vh] fixed bottom-1 flex flex-row items-center border-t-[1px]">
       <!-- <HelloWorld msg="You did it!" /> -->
       <nav class="w-full flex flex-row items-center justify-between font-normal px-4" >
         <RouterLink class="font-poppins" to="/your-locations">
