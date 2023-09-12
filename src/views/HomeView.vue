@@ -12,7 +12,7 @@
     ];
     const map = new mapboxgl.Map({
       container: "mapcontainer",
-      style: `mapbox://styles/shakzy/cllzhauhc00o501pba4gt0zhi`,
+      style: `mapbox://styles/shakzy/cllvtm9qo00dy01r4a0e5h7lx`,
       center: [7.977964, 5.037636],
       zoom: 1,
       maxBounds: bounds
