@@ -14,7 +14,7 @@
       container: "mapcontainer",
       style: `mapbox://styles/shakzy/cllzhauhc00o501pba4gt0zhi`,
       center: [7.977964, 5.037636],
-      zoom: 2,
+      zoom: 1,
       maxBounds: bounds
     });
     map.addControl(nav, "top-right");
