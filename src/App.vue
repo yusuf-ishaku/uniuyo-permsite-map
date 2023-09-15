@@ -1,7 +1,49 @@
 <script setup>
 // import { div} from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue';
+import {ref, onMounted, Transition} from "vue"
 import HomeViewVue from './views/HomeView.vue';
+import MyLocationsVue from "./views/MyLocations.vue";
+import SuggestedPlacesVue from "./views/SuggestedPlaces.vue";
+const show = ref(false);
+const showSearch = ref(false);
+const showPlaces = ref(false);
+// console.log(show.value);
+function handleShow(t){
+    if( t === 'search'){
+      if(!show.value){
+        showPlaces.value = false;
+        showSearch.value = true;
+        show.value = true;
+      }
+      else if(show.value){
+        if (showPlaces.value) {
+          showPlaces.value = false;
+          showSearch.value = true;
+        }
+        else{
+          show.value = false;
+          showSearch.value = false;
+        }
+      }
+    }
+    if(t === 'places'){
+      if(!show.value){
+        showSearch.value = false;
+        showPlaces.value = true;
+        show.value = true;
+      }
+      else if(show.value){
+        if (showSearch.value) {showSearch.value = false;
+        showPlaces.value = true;
+        }
+        else{
+          show.value = false;
+          showPlaces.value = false;
+        }
+      }
+    }
+}
 </script>
 
 <template>
@@ -12,15 +54,15 @@ import HomeViewVue from './views/HomeView.vue';
 
         </HomeViewVue>
       </div>
-      <nav class="w-full bg-white bottom-0 h-[10vh] flex flex-row items-center justify-between font-normal px-10 sm:px-20" >
-        <button class="font-poppins flex flex-col items-center" >
+      <nav class="w-full z-50 bg-white bottom-0 h-[10vh] flex flex-row items-center justify-between font-normal px-10 sm:px-20" >
+        <button @click="handleShow('search')" class="font-poppins flex flex-col items-center" >
           <span class="material-symbols-outlined">
             search
           </span>
           <span>Search</span>
         </button>
 
-        <button class="font-poppins flex flex-col items-center">
+        <button @click="show = false" class="font-poppins flex flex-col items-center">
           <span class="material-symbols-outlined">
             explore
           </span>
@@ -29,7 +71,7 @@ import HomeViewVue from './views/HomeView.vue';
           </span>
         </button>
         <!-- <div to="/about">About</div> -->
-        <button class="font-poppins flex flex-col items-center">
+        <button @click="handleShow('places')" class="font-poppins flex flex-col items-center">
           <span class="material-symbols-outlined">
             star
           </span>
@@ -39,11 +81,18 @@ import HomeViewVue from './views/HomeView.vue';
         </button>
       </nav>
     </div>
-    <div class="w-[90vw] bg-transparent  h-[100vh] pt-[10vh] flex flex-row items-end justify-center border-t-[1px]">
-        <div class="w-[85vw] sm:w-[80vw] bg-white h-[80vh] rounded-t-xl">
+    <Transition>
+      <div v-if="show" class="w-[90vw] bg-transparent moveup z-60 h-[100vh] pt-[10vh] flex flex-row items-end justify-center border-t-[1px]">
+        <div class="w-[85vw] sm:w-[80vw] bg-white h-[80vh] rounded-t-xl p-4">
+            <SuggestedPlacesVue v-if="showSearch">
 
+            </SuggestedPlacesVue>
+            <MyLocationsVue v-if="showPlaces">
+
+            </MyLocationsVue>
         </div>
-    </div>
+      </div>
+    </Transition>
   </div>
 </template>
 <style scoped>
@@ -53,6 +102,13 @@ import HomeViewVue from './views/HomeView.vue';
 }
 .moveup{
   transform: translateY(-100vh);
-  transition: all 500ms ease-in
+}
+.v-enter-active,
+.v-leave-active{
+  transition: all 500ms ease-in;
+}
+.v-enter-from,
+.v-leave-to {
+  transform: translateY(0vh);
 }
 </style>
