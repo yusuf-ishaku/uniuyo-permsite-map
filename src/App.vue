@@ -47,7 +47,7 @@ function handleShow(t){
 </script>
 
 <template>
-  <div class="w-[100vw] h-[100vh] overflow-hidden flex flex-col items-center ">
+  <div class="w-[100vw] h-[100vh] overflow-hidden fixed flex flex-col items-center ">
     <div class="w-[100vw] h-[100vh] flex flex-col items-center border-t-[1px]">
       <div class="w-[100vw] h-[90vh]">
         <HomeViewVue>
