@@ -4,7 +4,7 @@
 
 <template>
     <div class="w-full h-full flex flex-col items-center justify-center font-poppins">
-        <main class="w-full flex flex-col items-center justify-center">
+        <main class="w-full h-[90vh] overflow-y-auto flex flex-col items-center justify-center">
             <figure class="w-56 h-56">
                 <img src="../assets/images/hiii.png" alt="Account not found">
             </figure>
