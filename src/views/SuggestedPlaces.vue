@@ -1,8 +1,7 @@
 <script>
-import { ref, onMounted, defineComponent, } from "vue";
+import { ref, defineComponent, } from "vue";
 import { useGetLocationsQuery } from "../app/store.js";
 
-const name = ref('clly08aik5fwf2as9kzxvxjgm');
 
 // import {  ref } from 'vue'
 
@@ -24,7 +23,9 @@ export default defineComponent({
 
 <template>
     <div class="w-full h-[100%] p-2 b-red-800 font-poppins">
-        <input type="search" class="border-[1px] p-2 focus:border-0 w-full focus:outline-none border-gray-400 rounded"/>
+        <div class="py-2 ">
+            <input type="search" class="border-[1px] p-2 focus:border-0 w-full focus:outline-none border-gray-400 rounded"/>
+        </div>        
         <p v-if="isLoading">Fetching...</p>
         <div v-else>
             <p v-if="error" class="error">Error fetching pokemon</p>
