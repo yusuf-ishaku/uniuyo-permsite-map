@@ -48,13 +48,13 @@ function handleShow(t){
 
 <template>
   <div class="w-[100vw] h-[100vh] overflow-hidden flex flex-col items-center ">
-    <div class="w-[100vw] h-fit  flex flex-col items-center border-t-[1px]">
+    <div class="w-[100vw] h-[100vh]  flex flex-col items-center border-t-[1px]">
       <div class="w-[100vw] h-[90vh]">
         <HomeViewVue>
 
         </HomeViewVue>
       </div>
-      <nav class="w-full z-50 bg-white top-[90vh] fixed bottom-0 h-[10vh] flex flex-row items-center justify-between font-normal px-10 py-2 sm:px-20" >
+      <nav class="w-full z-50 bg-white top-[90vh] fixed h-[10vh] flex flex-row items-center justify-between font-normal px-10 py-2 sm:px-20" >
         <button @click="handleShow('search')" class="font-poppins flex flex-col items-center" >
           <span class="material-symbols-outlined">
             search
@@ -82,7 +82,7 @@ function handleShow(t){
       </nav>
     </div>
     <Transition>
-      <div v-if="show" class="w-[90vw] bg-transparent moveup z-60 h-[100vh] pt-[10vh] flex flex-row items-end justify-center border-t-[1px]">
+      <div v-if="show" class="w-[90vw] bg-transparent moveup z-60 h-[100vh] pt-[20vh] flex flex-row items-end justify-center border-t-[1px]">
         <div class="w-[85vw] sm:w-[80vw] bg-white h-[80vh] rounded-t-xl p-4">
             <SuggestedPlacesVue v-if="showSearch">
 
