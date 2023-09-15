@@ -54,7 +54,7 @@ function handleShow(t){
 
         </HomeViewVue>
       </div>
-      <nav class="w-full z-50 bg-white bottom-0 h-[10vh] flex flex-row items-center justify-between font-normal px-10 sm:px-20" >
+      <nav class="w-full z-50 bg-white top-[90vh] fixed bottom-0 h-[10vh] flex flex-row items-center justify-between font-normal px-10 py-2 sm:px-20" >
         <button @click="handleShow('search')" class="font-poppins flex flex-col items-center" >
           <span class="material-symbols-outlined">
             search
