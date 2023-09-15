@@ -82,8 +82,8 @@ function handleShow(t){
       </nav>
     </div>
     <Transition>
-      <div v-if="show" class="w-[90vw] bg-transparent  moveup z-60 h-[100vh] pt-[5vh] flex flex-row items-end justify-center border-t-[1px]">
-        <div class="w-[92vw] sm:w-[80vw] bg-white h-[95vh] rounded-t-xl p-3">
+      <div v-if="show" class="w-[90vw] bg-transparent  moveup z-60 h-[100vh] pt-[15vh] flex flex-row items-end justify-center border-t-[1px]">
+        <div class="w-[92vw] sm:w-[80vw] bg-white h-[85vh] rounded-t-xl p-3">
             <SuggestedPlacesVue v-if="showSearch">
 
             </SuggestedPlacesVue>

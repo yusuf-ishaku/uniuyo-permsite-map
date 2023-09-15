@@ -30,7 +30,7 @@ export default defineComponent({
         <div v-else>
             <p v-if="error" class="error">Error fetching pokemon</p>
             <div v-else class="w-full h-full"> 
-                <ul class="h-[75vh] overflow-y-auto px-3 py-3">
+                <ul class="h-[75%] overflow-y-auto px-3 py-3">
                     <li class="border-[1px] border-gray-400 my-2 h-fit rounded-md p-2" v-for="feature in data?.features" :key="feature.id">
                         <h3 class="text-lg font-semibold">
                             {{ feature.properties.title }}

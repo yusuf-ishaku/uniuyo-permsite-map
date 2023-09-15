@@ -1,6 +1,6 @@
 <script setup>
   import mapboxgl from "mapbox-gl"
-  import {ref, onMounted} from "vue";
+  import { onMounted} from "vue";
 
 
   onMounted(()=>{
@@ -36,6 +36,7 @@ return;
 }
 const feature = features[0];
  
+// eslint-disable-next-line no-unused-vars
 const popup = new mapboxgl.Popup({ offset: [0, -15] })
 .setLngLat(feature.geometry.coordinates)
 .setHTML(
