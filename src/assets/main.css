@@ -53,3 +53,7 @@ body{
   margin: 0;
   padding: 0;
 }
+
+.bg-aroma{
+  background-color: rgba(189, 189, 189, 0.336);
+}

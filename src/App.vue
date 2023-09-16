@@ -47,7 +47,7 @@ function handleShow(t){
 </script>
 
 <template>
-  <div class="w-[100vw] h-[100vh] overflow-hidden flex flex-col items-center ">
+  <div class="w-[100vw] h-[100vh] overflow-hidden">
     <div class="w-[100vw] h-[100vh] flex flex-col items-center border-t-[1px]">
       <div class="w-[100vw] h-[90vh]">
         <HomeViewVue>
@@ -55,14 +55,19 @@ function handleShow(t){
         </HomeViewVue>
       </div>
       <nav class="w-full z-50 bg-white fixed bottom-0  h-[10vh] flex flex-row items-center justify-between font-normal px-10 py-2 sm:px-20" >
-        <button @click="handleShow('search')" class="font-poppins flex flex-col items-center" >
+        <button @click="handleShow('search')" 
+        class="w-fit p-2 font-poppins flex flex-col items-center" 
+        :class="{'text-blue-600' : showSearch }">
           <span class="material-symbols-outlined">
             search
           </span>
           <span>Search</span>
         </button>
 
-        <button @click="show = false" class="font-poppins flex flex-col items-center">
+        <button @click="show = false; showSearch = false; showPlaces = false" 
+        :class="{'text-blue-600' : !show}"
+        class="font-poppins w-fit p-2 flex flex-col items-center"
+        >
           <span class="material-symbols-outlined">
             explore
           </span>
@@ -71,7 +76,9 @@ function handleShow(t){
           </span>
         </button>
         <!-- <div to="/about">About</div> -->
-        <button @click="handleShow('places')" class="font-poppins flex flex-col items-center">
+        <button @click="handleShow('places')" 
+        class="w-fit p-2 font-poppins flex flex-col items-center"
+        :class="{'text-blue-600': showPlaces}">
           <span class="material-symbols-outlined">
             star
           </span>
@@ -82,7 +89,7 @@ function handleShow(t){
       </nav>
     </div>
     <Transition>
-      <div v-if="show" class="w-[90vw] bg-transparent  moveup z-60 h-[100vh] pt-[15vh] flex flex-row items-end justify-center border-t-[1px]">
+      <div v-if="show" class="w-[100vw] bg-red-900 bg-aroma  moveup z-60 h-[90vh] pt-[5vh] flex flex-row items-end justify-center border-t-[1px]">
         <div class="w-[92vw] sm:w-[80vw] bg-white h-[85vh] rounded-t-xl p-3">
             <SuggestedPlacesVue v-if="showSearch">
 

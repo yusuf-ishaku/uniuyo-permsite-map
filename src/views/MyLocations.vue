@@ -18,7 +18,7 @@
                 Create Account
             </button> 
             <button class="border-[1px] border-blue-700 my-2 text-blue-700 bg-transparent px-4 p-2 rounded-md">
-                Sign up
+                Sign In
             </button>
         </main>
     </div>
