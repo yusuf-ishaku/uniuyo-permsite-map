@@ -5,6 +5,7 @@
 <template>
     <div class="w-full flex h-[100%] flex-col items-center justify-center font-poppins">
         <main class="w-full h-fit overflow-y-auto flex flex-col items-center justify-center">
+            <RouterView></RouterView>
             <figure class="h-40 w-40 sm:w-56 sm:h-56">
                 <img src="../assets/images/hiii.png" alt="Account not found">
             </figure>
@@ -12,14 +13,18 @@
                 Oops!
             </h2>
             <p class="w-3/4 text-sm sm:text-lg font-normal text-center">
-                You have not opened an account hence we're not able to determine places you'll need to be on campus!
+               Create a Miversity account or log in to view your locations
             </p>
-            <button class="bg-blue-700 text-white h-fit px-4 p-2 rounded-md my-2">
+            <RouterLink to="/auth/signup">
+                <button class="bg-blue-700 text-white h-fit px-4 p-2 rounded-md my-2">
                 Create Account
             </button> 
-            <button class="border-[1px] border-blue-700 my-2 text-blue-700 bg-transparent px-4 p-2 rounded-md">
+            </RouterLink>
+            <RouterLink to="/auth/login">
+                <button class="border-[1px] border-blue-700 my-2 text-blue-700 bg-transparent px-4 p-2 rounded-md">
                 Sign In
-            </button>
+                </button>
+            </RouterLink>
         </main>
     </div>
 </template>

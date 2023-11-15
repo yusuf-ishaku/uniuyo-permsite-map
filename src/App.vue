@@ -1,16 +1,19 @@
 <script setup>
 // import { div} from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue';
-import {ref, onMounted, Transition} from "vue"
+import { VuePreloader } from 'vue-preloader';
+import {useRouter,} from 'vue-router'
+import '../node_modules/vue-preloader/dist/style.css';
+import {ref} from "vue"
 import HomeViewVue from './views/HomeView.vue';
-import MyLocationsVue from "./views/MyLocations.vue";
-import SuggestedPlacesVue from "./views/SuggestedPlaces.vue";
 const show = ref(false);
 const showSearch = ref(false);
+const router = useRouter();
 const showPlaces = ref(false);
 // console.log(show.value);
 function handleShow(t){
     if( t === 'search'){
+      router.push({path: "/suggestedplaces"})
       if(!show.value){
         showPlaces.value = false;
         showSearch.value = true;
@@ -24,10 +27,12 @@ function handleShow(t){
         else{
           show.value = false;
           showSearch.value = false;
+          router.push("/")
         }
       }
     }
     if(t === 'places'){
+      router.push({path: "/locations"})
       if(!show.value){
         showSearch.value = false;
         showPlaces.value = true;
@@ -40,6 +45,7 @@ function handleShow(t){
         else{
           show.value = false;
           showPlaces.value = false;
+          router.push("/")
         }
       }
     }
@@ -64,7 +70,10 @@ function handleShow(t){
           <span>Search</span>
         </button>
 
-        <button @click="show = false; showSearch = false; showPlaces = false" 
+        
+        <!-- <div to="/about">About</div> -->
+        <RouterLink to="/">
+          <button @click="show = false; showSearch = false; showPlaces = false" 
         :class="{'text-blue-600' : !show}"
         class="font-poppins w-fit p-2 flex flex-col items-center"
         >
@@ -75,7 +84,7 @@ function handleShow(t){
             Map
           </span>
         </button>
-        <!-- <div to="/about">About</div> -->
+        </RouterLink>
         <button @click="handleShow('places')" 
         class="w-fit p-2 font-poppins flex flex-col items-center"
         :class="{'text-blue-600': showPlaces}">
@@ -83,24 +92,32 @@ function handleShow(t){
             star
           </span>
           <span>
-            Places
+           My Places
           </span>
         </button>
       </nav>
     </div>
     <Transition>
-      <div v-if="show" class="w-[100vw] bg-red-900 bg-aroma  moveup z-60 h-[90vh] pt-[5vh] flex flex-row items-end justify-center border-t-[1px]">
+      <div v-if="show" class="w-[100vw] bg-red-900 bg-aroma  moveup z-20 h-[90vh] pt-[5vh] flex flex-row items-end justify-center border-t-[1px] relative">
         <div class="w-[92vw] sm:w-[80vw] bg-white h-[85vh] rounded-t-xl p-3">
-            <SuggestedPlacesVue v-if="showSearch">
-
-            </SuggestedPlacesVue>
-            <MyLocationsVue v-if="showPlaces">
-
-            </MyLocationsVue>
+            <RouterView></RouterView>
         </div>
       </div>
     </Transition>
   </div>
+  <VuePreloader
+    background-color="#091a28"
+    color="#ffffff"
+    transition-type="fade-up"
+    :loading-speed="50"
+    :transition-speed="1900"
+    @loading-is-over="loadingIsOver"
+    @transition-is-over="transitionIsOver" 
+    overflow-active="true"
+    class="w-[100vw] absolute h-[100vh] z-[9999]"
+  >
+  <span class="text-white">You are awesome animation goes here</span>
+  </VuePreloader>
 </template>
 <style scoped>
 #mapcontainer{

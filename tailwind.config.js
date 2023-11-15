@@ -5,7 +5,10 @@ module.exports = {
   "./src/App.vue",
   "./src/views/HomeView.vue",
   "./src/views/MyLocations.vue",
-  "./src/views/SuggestedPlaces.vue"
+  "./src/views/SuggestedPlaces.vue",
+  "./src/views/AuthView.vue",
+  "./src/components/auth/SignUpForLocations.vue",
+  "./src/components/auth/LoginForLocations.vue"
   ],
   theme: {
     extend: {
