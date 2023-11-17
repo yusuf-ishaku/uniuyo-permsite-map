@@ -10,6 +10,7 @@ const router = useRouter();
 const route = useRoute();
 const showPlaces = ref(false);
 const campus = route.params.campus;
+// console.log(valid)
 // console.log(show.value);
 const handleShow = (param) =>{
    
@@ -49,7 +50,7 @@ const handleShow = (param) =>{
 
         
         <!-- <div to="/about">About</div> -->
-        <RouterLink to="/">
+        <RouterLink :to="`/${campus}`">
           <button @click="show = false; showSearch = false; showPlaces = false" 
         :class="{'text-blue-600' : !show}"
         class="font-poppins w-fit p-2 flex flex-col items-center"
@@ -65,7 +66,8 @@ const handleShow = (param) =>{
         <button
             @click="handleShow('locations')"
             class="w-fit p-2 font-poppins flex flex-col items-center"
-            :class="{'text-blue-600': route.path === `/${campus}/locations`}">
+            :class="{'text-blue-600':  (route.path === `/${campus}/locations`) || (route.path === `/${campus}/auth/signup`) || (route.path === `/${campus}/auth/login`)}"
+            >
           <span class="material-symbols-outlined">
             star
           </span>

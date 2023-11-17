@@ -34,6 +34,6 @@ let submitData = async () =>{
         <div class="w-[80%] my-3">
             <input required v-model="password2" autocomplete="off" class="w-full py-2 p-2 border-gray-500 border-[1px] rounded-md focus:outline-none" type="password" placeholder="password">
         </div>
-        <button type="submit" class="bg-blue-600 text-white w-fit rounded-md px-4 py-2">Submit</button>
+        <button type="submit" class="bg-blue-600 text-white w-fit rounded-md px-4 py-2">Sign up</button>
     </form>
 </template>

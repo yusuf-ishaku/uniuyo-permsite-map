@@ -16,7 +16,7 @@ let showMap = ref(false)
           Campus?
         </h2>
       </header>
-      <RouterLink @click="showMap = true" to="/maincamp/home">
+      <RouterLink @click="showMap = true" to="/maincamp">
         <button 
           data-aos="fade-up" 
           data-aos-offset="300"
@@ -26,7 +26,7 @@ let showMap = ref(false)
         University of Uyo, Main Campus
         </button>
       </RouterLink>
-      <RouterLink to="/towncamp/home">
+      <RouterLink to="/towncamp">
         <button 
           data-aos="fade-up" 
           data-aos-offset="300"
@@ -36,7 +36,7 @@ let showMap = ref(false)
         University of Uyo, Town Campus
         </button>
       </RouterLink>
-      <RouterLink to="/annex/home">
+      <RouterLink to="/annex">
         <button 
           data-aos="fade-up" 
           data-aos-easing="ease-in-sine" 
