@@ -1,43 +1,50 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomeView from '../views/HomeView.vue';
-import SuggestedPlaces from "../views/SuggestedPlaces.vue";
-import YourLocations from "../views/MyLocations.vue";
+// import HomeView from '../views/HomeView.vue';
+import Locations from "../views/MyLocations.vue";
+import SuggestedPlaces from "../views/SuggestedPlaces.vue"
 import AuthView from "../views/AuthView.vue";
 import SignUpForLocations from "../components/auth/SignUpForLocations.vue";
 import LoginForLocations from "../components/auth/LoginForLocations.vue";
+import OriginalView from "../views/OriginalView.vue";
+import OnboardView from "../views/OnboardView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView
+      path: "/",
+      name: "Onboard",
+      component: OnboardView
     },
     {
-      path: "/suggestedplaces",
-      name: "suggested places",
-      component: SuggestedPlaces
-    },
-    {
-      path: "/locations",
-      name: 'your locations',
-      component: YourLocations,
-        
-    },
-    {
-      path: "/auth",
-      component: AuthView,
+      path: "/:campus",
+      name: 'Home',
+      component: OriginalView,
       children: [
         {
-          path: "signup",
-          component: SignUpForLocations
+          path: "locations",
+          component: Locations
         },
         {
-          path: "login",
-          component: LoginForLocations
-        }
+          path: "suggestedplaces",
+          component: SuggestedPlaces
+        },
+        {
+          path: "auth",
+          component: AuthView,
+          children: [
+            {
+              path: "signup",
+              component: SignUpForLocations
+            },
+            {
+              path: "login",
+              component: LoginForLocations
+            }
+          ]
+         }
       ]
-     }
+    },
+    
  
   ]
 })

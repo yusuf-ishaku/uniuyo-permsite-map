@@ -1,4 +1,9 @@
 <script setup>
+import {useRoute} from "vue-router"
+const route = useRoute();
+
+const campus = route.params.campus;
+
 
 </script>
 
@@ -15,12 +20,12 @@
             <p class="w-3/4 text-sm sm:text-lg font-normal text-center">
                Create a Miversity account or log in to view your locations
             </p>
-            <RouterLink to="/auth/signup">
+            <RouterLink :to="`/${campus}/auth/signup`">
                 <button class="bg-blue-700 text-white h-fit px-4 p-2 rounded-md my-2">
                 Create Account
             </button> 
             </RouterLink>
-            <RouterLink to="/auth/login">
+            <RouterLink :to="`/${campus}/auth/login`">
                 <button class="border-[1px] border-blue-700 my-2 text-blue-700 bg-transparent px-4 p-2 rounded-md">
                 Sign In
                 </button>

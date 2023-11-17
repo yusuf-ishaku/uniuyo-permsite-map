@@ -1,8 +1,9 @@
 <script>
 import { ref, defineComponent, } from "vue";
 import { useGetLocationsQuery } from "../app/store.js";
+// import { useRoute } from "vue-router";
 
-
+// const route = useRoute();
 // import {  ref } from 'vue'
 
 // import { useGetPokemonByNameQuery } from '../store';
