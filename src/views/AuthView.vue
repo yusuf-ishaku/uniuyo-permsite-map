@@ -5,13 +5,19 @@ const route = useRoute();
 const campus = route.params.campus;
 </script>
 <template>
-    <header class="flex flex-col justify-around w-[100%] items-center font-poppins">
-        <RouterLink class="text-blue-600 mr-auto" :to="`/${campus}/locations`">
+    <div class="h-[100%] w-full">
+        <header class="flex flex-col justify-around w-[100%] items-center font-poppins">
+        <RouterLink class="text-blue-600 mr-auto text-sm" :to="`/${campus}/locations`">
             Back
         </RouterLink>
-        <h1 class="my-3">
+        <h1 class="my-1">
         Miversity.com
         </h1>
-    </header>   
-    <RouterView></RouterView>
+    </header>
+    <main class="overflow-y-scroll h-[70vh]">
+        <RouterView ></RouterView>
+    </main>   
+    </div>
+    
+    
 </template>

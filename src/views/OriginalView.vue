@@ -68,9 +68,9 @@ const handleShow = (param) =>{
             class="w-fit p-2 font-poppins flex flex-col items-center"
             :class="{'text-blue-600':  (route.path === `/${campus}/locations`) || (route.path === `/${campus}/auth/signup`) || (route.path === `/${campus}/auth/login`)}"
             >
-          <span class="material-symbols-outlined">
-            star
-          </span>
+            <span class="material-symbols-outlined">
+account_circle
+</span>
           <span>
            My Places
           </span>
