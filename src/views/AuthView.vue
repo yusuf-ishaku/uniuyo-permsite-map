@@ -14,7 +14,7 @@ const campus = route.params.campus;
         Miversity.com
         </h1>
     </header>
-    <main class="overflow-y-scroll h-[70vh]">
+    <main class="overflow-y-auto h-[70vh]">
         <RouterView ></RouterView>
     </main>   
     </div>

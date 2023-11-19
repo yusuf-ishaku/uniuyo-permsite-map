@@ -58,6 +58,6 @@ let showMap = ref(false)
     overflow-active=true
     class="w-[100vw] absolute h-[100vh] z-[9999]"
   >
-  <span class="text-white">You are awesome animation goes here</span>
+  <span class="text-white">Miversity</span>
   </VuePreloader>
 </template>

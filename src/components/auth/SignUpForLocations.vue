@@ -27,9 +27,10 @@ let submitData = async () =>{
         password: password.value,
     }
     let response = await axios.post("https://miversity-map-app.onrender.com/api/v1/signup", data);
+    console.log(response.data);
     formerror.value = response.data.message;
     if(response.data.code === 201){
-        router.push({path: "/user/courses"})
+        router.push({path: `/maincamp/locations/${response.data.data.miversityId}`})
     }
 }
 </script>
@@ -53,10 +54,10 @@ let submitData = async () =>{
                     <input v-if="!passwordSeen" required v-model="password" autocomplete="password" class="w-full py-2 p-2  rounded-md focus:outline-none" type="password" placeholder="........">
                     <input v-else required v-model="password" autocomplete="password" class="w-full py-2 p-2  rounded-md focus:outline-none" type="text" placeholder="........">
                     
-                    <span @click="passwordChange" class="flex flex-col items-center pr-2">
+                    <span @click="passwordChange" class="flex flex-col items-center pr-2 cursor-pointer">
                         <span v-if="passwordSeen" class="material-symbols-outlined">visibility</span>
                     </span>
-                    <span @click="passwordChange" class="flex flex-col items-center pr-2">
+                    <span @click="passwordChange" class="flex flex-col items-center pr-2 cursor-pointer">
                         <span v-if="!passwordSeen" class="material-symbols-outlined">visibility_off</span>
                     </span>
                 </div>

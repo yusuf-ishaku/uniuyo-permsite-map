@@ -7,6 +7,7 @@ import SignUpForLocations from "../components/auth/SignUpForLocations.vue";
 import LoginForLocations from "../components/auth/LoginForLocations.vue";
 import OriginalView from "../views/OriginalView.vue";
 import OnboardView from "../views/OnboardView.vue";
+import CoursesView from "../views/CoursesView.vue";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -22,7 +23,13 @@ const router = createRouter({
       children: [
         {
           path: "locations",
-          component: Locations
+          component: Locations,
+          children: [
+            {
+              path: ":id",
+              component: CoursesView
+            }
+          ]
         },
         {
           path: "suggestedplaces",
