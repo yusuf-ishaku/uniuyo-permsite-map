@@ -20,16 +20,22 @@ const router = createRouter({
       path: "/:campus",
       name: 'Home',
       component: OriginalView,
+      
       children: [
+        {
+          path: ":id",
+          component: CoursesView,
+          children: [
+            {
+              path: "locations",
+              component: Locations,
+            }
+           
+          ]
+        },
         {
           path: "locations",
           component: Locations,
-          children: [
-            {
-              path: ":id",
-              component: CoursesView
-            }
-          ]
         },
         {
           path: "suggestedplaces",

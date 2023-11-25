@@ -5,6 +5,7 @@ import { useRouter } from "vue-router";
 const username = ref("");
 const email = ref("");
 const password = ref("");
+// let userId;
 const router = useRouter();
 // const password2 = ref("");
 const formerror = ref("");
@@ -30,7 +31,9 @@ let submitData = async () =>{
     console.log(response.data);
     formerror.value = response.data.message;
     if(response.data.code === 201){
-        router.push({path: `/maincamp/locations/${response.data.data.miversityId}`})
+        localStorage.setItem("MIVERSITY_USER_ID", JSON.stringify(response.data.data.miversityId));
+        localStorage.setItem("MIVERSITY_ACCESS_TOKEN", JSON.stringify(response.data.data.token));
+        router.push({path: `/maincamp/${response.data.data.miversityId}/locations`})
     }
 }
 </script>

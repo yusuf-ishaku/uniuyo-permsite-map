@@ -1,17 +1,23 @@
 <script setup>
-import {useRoute} from "vue-router"
+import {useRoute} from "vue-router";
+import { onBeforeMount, ref } from 'vue';
+import CoursesView from "./CoursesView.vue";
+
 const route = useRoute();
 
 const campus = route.params.campus;
-
-
+let userId;
+onBeforeMount(() =>{
+   userId =  ref(JSON.parse(localStorage.getItem("MIVERSITY_USER_ID")));
+})
 </script>
 
 <template>
     <div class="w-full flex h-[100%] flex-col items-center justify-center font-poppins">
         <main class="w-full h-fit overflow-y-auto flex flex-col items-center justify-center">
-            <RouterView></RouterView>
-            <figure class="h-40 w-40 sm:w-56 sm:h-56">
+           
+            <section v-if="!userId" class="flex flex-col items-center"> 
+                <figure class="h-40 w-40 sm:w-56 sm:h-56">
                 <img src="../assets/images/hiii.png" alt="Account not found">
             </figure>
             <h2 class="w-2/3 text-xl font-semibold text-center">
@@ -30,6 +36,9 @@ const campus = route.params.campus;
                 Sign In
                 </button>
             </RouterLink>
+            </section>
+            <CoursesView v-else>
+            </CoursesView>
         </main>
     </div>
 </template>

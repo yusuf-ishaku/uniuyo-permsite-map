@@ -1,6 +1,7 @@
 <script setup>
-import {ref} from "vue";
+import { ref } from "vue";
 const passwordSeen = ref(false);
+
 const passwordChange = () =>{
     passwordSeen.value = !passwordSeen.value;
     return null

@@ -12,19 +12,25 @@ const showPlaces = ref(false);
 const campus = route.params.campus;
 // console.log(valid)
 // console.log(show.value);
+let userId = JSON.parse(localStorage.getItem("MIVERSITY_USER_ID"));
+if(!userId) {
+  userId = ""
+}else {
+  userId = `${userId}/`;
+}
 const handleShow = (param) =>{
    
     if(show.value && route.path !== `/${campus}/${param}`){
-        router.push({path: `/${campus}/${param}`});
+        router.push({path: `/${campus}/${userId}${param}`});
         return
     }
-    if(show.value && route.path === `/${campus}/${param}`){
-        router.push({path: `/${campus}`});
+    if(show.value && route.path === `/${campus}/${userId}/${param}`){
+        router.push({path: `/${campus}/${userId}`});
         show.value = false;
         return
     }
     show.value = true;
-    router.push({path: `/${campus}/${param}`});
+    router.push({path: `/${campus}/${userId}${param}`});
 }
 
 </script>
