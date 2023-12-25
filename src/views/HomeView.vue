@@ -1,22 +1,33 @@
 <script setup>
   import mapboxgl from "mapbox-gl"
-  import { onMounted} from "vue";
-
-
+  import { onMounted } from "vue";
+  const props = defineProps(["campus"]);
+  const campus = props.campus;
   onMounted(()=>{
     mapboxgl.accessToken = `pk.eyJ1Ijoic2hha3p5IiwiYSI6ImNsbHh3bmpkNDJrN3czcHA4eWlsbGo5cXgifQ.dI63IIgQ30AaQrmQLwBsaA`;
     const nav = new mapboxgl.NavigationControl();
-    const bounds = [
+    let bounds = [
         [7.972914, 5.028030],
         [7.981987, 5.047798]
     ];
     
+    let center;
+    if(campus === "maincamp") {
+      center = [7.922957, 5.042335]
+      return
+    } else {
+      center = [7.922957, 5.042335]
+      bounds = [
+      [7.92073, 5.05038],
+      [7.92236, 5.03391]
+    ]
+    }
     const map = new mapboxgl.Map({
       container: "mapcontainer",
-      style: `mapbox://styles/shakzy/cllvtm9qo00dy01r4a0e5h7lx`,
-      center: [7.977964, 5.037636],
-      zoom: 1,
-      maxBounds: bounds
+      style: `${campus === "maincamp" && "mapbox://styles/shakzy/cllvtm9qo00dy01r4a0e5h7lx" || campus === "towncamp" && "mapbox://styles/shakzy/clqk8r5hx00jx01qy9wjz85kj"}`,
+      center,
+      zoom: 17,
+     
     });
     map.addControl(nav, "top-right");
     map.addControl(new mapboxgl.GeolocateControl({
@@ -44,9 +55,9 @@ const popup = new mapboxgl.Popup({ offset: [0, -15] })
 )
 .addTo(map);
 });    
+});
 
-
-  })
+// console.log(props.campus)
 </script>
 
 <template>

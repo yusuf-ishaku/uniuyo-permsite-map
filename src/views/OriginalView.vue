@@ -39,7 +39,7 @@ const handleShow = (param) =>{
   <div class="w-[100vw] h-[100vh] overflow-hidden">
     <div class="w-[100vw] h-[100vh] flex flex-col items-center border-t-[1px]">
       <div class="w-[100vw] h-[90vh]">
-        <HomeViewVue>
+        <HomeViewVue :campus="campus">
 
         </HomeViewVue>
       </div>
