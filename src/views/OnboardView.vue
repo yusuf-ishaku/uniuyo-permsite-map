@@ -48,7 +48,7 @@ let showMap = ref(false)
      </div>
     </main>
   <VuePreloader
-    background-color="#091a28"
+    background-color="#ffffff"
     color="#ffffff"
     transition-type="fade-up"
     :loading-speed="28"
@@ -56,8 +56,10 @@ let showMap = ref(false)
     @loading-is-over="loadingIsOver"
     @transition-is-over="transitionIsOver" 
     overflow-active=true
-    class="w-[100vw] absolute h-[100vh] z-[9999]"
+    class="w-[100vw] absolute h-[100vh] flex items-center justify-center z-[9999]"
   >
-  <span class="text-white">Miversity</span>
+  <span class="text-white">
+    <img width="150" height="150" src="../assets/images/miversity-logo.jpg"/>
+  </span>
   </VuePreloader>
 </template>
