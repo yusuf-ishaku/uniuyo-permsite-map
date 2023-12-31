@@ -10,6 +10,7 @@ const router = useRouter();
 const route = useRoute();
 const showPlaces = ref(false);
 const campus = route.params.campus;
+// console.log(campus)
 // console.log(valid)
 // console.log(show.value);
 let userId = JSON.parse(localStorage.getItem("MIVERSITY_USER_ID"));
